@@ -1,3 +1,4 @@
+import unittest
 from unittest import TestCase
 
 from asl_data import AslDb
@@ -6,6 +7,7 @@ from my_model_selectors import SelectorConstant
 from my_recognizer import recognize
 
 FEATURES = ['right-y', 'right-x']
+
 
 class TestRecognize(TestCase):
     def setUp(self):
@@ -26,3 +28,6 @@ class TestRecognize(TestCase):
         self.assertIsInstance(guesses[0], str, "The guesses are not strings")
         self.assertIsInstance(guesses[-1], str, "The guesses are not strings")
 
+
+if __name__ == '__main__':
+    unittest.main()
