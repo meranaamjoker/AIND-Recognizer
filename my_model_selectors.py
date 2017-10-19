@@ -160,13 +160,13 @@ class SelectorCV(ModelSelector):
     def select(self):
         warnings.filterwarnings("ignore", category=DeprecationWarning)
 
-        best_score = float('inf')
+        best_score = float('-inf')
         best_model = None
 
         for i in range(self.min_n_components, self.max_n_components + 1):
             try:
                 score, model = self.cv_score(i)
-                if score < best_score:
+                if score > best_score:
                     best_score = score
                     best_model = model
             except:
